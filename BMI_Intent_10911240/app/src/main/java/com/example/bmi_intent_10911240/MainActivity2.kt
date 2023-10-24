@@ -27,8 +27,6 @@ class MainActivity2 : AppCompatActivity() {
             vw_bmi.text = "BMI: ${Bmi}"
         }
 
-        Toast.makeText(this, "您的BMI值為：${Bmi}", Toast.LENGTH_LONG).show()
-
         btn_bmi.setOnClickListener {
             val Gender = when{
                 boy.isChecked -> "先生"
