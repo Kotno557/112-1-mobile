@@ -2,18 +2,15 @@ package com.example.bmi_intent_10911240
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -21,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val name = findViewById<EditText>(R.id.editTextText)
-        val hight = findViewById<EditText>(R.id.editTextText2)
-        val weight = findViewById<EditText>(R.id.editTextText3)
+        val name = findViewById<TextInputEditText>(R.id.textInputEditText1)
+        val hight = findViewById<TextInputEditText>(R.id.textInputEditText2)
+        val weight = findViewById<TextInputEditText>(R.id.textInputEditText3)
         val result = findViewById<TextView>(R.id.textView7)
         val suggestion = findViewById<TextView>(R.id.textView8)
         val btn_bmi = findViewById<Button>(R.id.button2)
