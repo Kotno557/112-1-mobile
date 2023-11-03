@@ -1,5 +1,6 @@
 package com.example.bmi_intent_10911240
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,24 +12,25 @@ import android.widget.Toast
 import kotlin.math.roundToInt
 
 class MainActivity2 : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
         val boy = findViewById<RadioButton>(R.id.radioButton)
         val girl = findViewById<RadioButton>(R.id.radioButton2)
-        val btn_bmi = findViewById<Button>(R.id.button3)
-        val vw_bmi = findViewById<TextView>(R.id.textView6)
-        var Bmi = 0.0
+        val btnBmi = findViewById<Button>(R.id.button3)
+        val vwBmi = findViewById<TextView>(R.id.textView6)
+        var bmi = 0.0
         intent?.extras?.let {
-            val Hight = it.getInt("Hight") / 100.0
-            val Weight = it.getInt("Weight")
-            Bmi = ((Weight / (Hight * Hight)) * 10.0).roundToInt() / 10.0
-            vw_bmi.text = "BMI: ${Bmi}"
+            val height = it.getInt("Height") / 100.0
+            val weight = it.getInt("Weight")
+            bmi = ((weight / (height * height)) * 10.0).roundToInt() / 10.0
+            vwBmi.text = "BMI: $bmi"
         }
 
-        btn_bmi.setOnClickListener {
-            val Gender = when{
+        btnBmi.setOnClickListener {
+            val gender = when{
                 boy.isChecked -> "先生"
                 girl.isChecked -> "女士"
                 else -> {
@@ -36,7 +38,7 @@ class MainActivity2 : AppCompatActivity() {
                     return@setOnClickListener
                 }
             }
-            val intent = Intent().putExtra("Gander", Gender).putExtra("Bmi", Bmi)
+            val intent = Intent().putExtra("Gander", gender).putExtra("Bmi", bmi)
             setResult(Activity.RESULT_OK,intent)
             finish()
         }
