@@ -60,6 +60,9 @@ class MainActivity : AppCompatActivity() {
                         bmiLevel = "數值錯誤"
                     }
                 }
+
+                btnSuggest.isEnabled = true
+
             }
         }
 
@@ -84,11 +87,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSuggest.setOnClickListener {
+            // 建立 intent 實體
+            val intent = Intent(this, MainActivity3::class.java)
+
+            // 建立資料傳送包(Bundle)，並放入資料
             val bundle = Bundle()
             bundle.putString("bmiLevel", bmiLevel)
-
-            val intent = Intent(this, MainActivity3::class.java)
             intent.putExtras(bundle)
+
+            // 轉跳到 Intent 頁面
             startActivity(intent)
         }
     }
